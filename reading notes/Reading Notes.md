@@ -1,24 +1,24 @@
 # Reading Notes
 
-#### 6.10
+#### 6.10 现有工具Overview
 
 ###### Formal verification Overview
 
-1. Securify：有论文，https://github.com/eth-sri/securify2，https://arxiv.org/pdf/1806.01143.pdf
-2. Oyente：有论文，https://github.com/melonproject/oyente
+1. Securify：[源码](https://github.com/eth-sri/securify2)，[论文地址](https://arxiv.org/pdf/1806.01143.pdf)
+2. Oyente：[源码](https://github.com/melonproject/oyente)，[论文地址](https://www.comp.nus.edu.sg/~prateeks/papers/Oyente.pdf)
 
 ###### Dynamic Analysis Overview
 
-1. Manticore，有论文，trailofbits的，https://arxiv.org/pdf/1907.03890.pdf。完善。
-2. Mythril：开源，无论文，https://github.com/ConsenSys/mythril，https://mythril-classic.readthedocs.io/en/develop/module-list.html。完善。EVM、动态、符号执行+fuzz+SMT Z3求解器、不光能分析本地源码，还能分析链上的合约。
-3. MAIAN：开源，有论文，https://github.com/ivicanikolicsg/MAIAN，https://arxiv.org/pdf/1802.06038.pdf。个人，不再维护。只有3个检测项，Z3求解器。
+1. Manticore：trailofbits的，[源码](https://github.com/trailofbits/manticore)，[论文地址](https://arxiv.org/pdf/1907.03890.pdf)。完善。
+2. Mythril：无论文，[源码](https://github.com/ConsenSys/mythril)，[user guide](https://mythril-classic.readthedocs.io/en/develop/module-list.html)。完善。EVM、动态、符号执行+fuzz+SMT Z3求解器、不光能分析本地源码，还能分析链上的合约。
+3. MAIAN：[源码](https://github.com/ivicanikolicsg/MAIAN)，[论文地址](https://arxiv.org/pdf/1802.06038.pdf)。个人，不再维护。只有3个检测项，Z3求解器。
 
 ###### Static Analysis Overview
 
-1. Slither：有论文，https://github.com/crytic/slither#publications。完善。扩展性强，有丰富的extension论文：在slither之上加了符号执行；基于slither构建storage dependency graph；22年的文章在slither的基础上结合Symbolic evaluation with Value summary analysis做State inconsistency方面的漏洞检测，SI主要就两个漏洞，重入和Transaction Order Dependence（attacker提高gas limit以影响两笔交易的执行顺序，先提交的tx被后打包执行）
-2. SmartCheck：有论文，https://github.com/smartdec/smartcheck、https://orbilu.uni.lu/bitstream/10993/35862/3/smartcheck-paper.pdf。个人，不再维护。把代码语句转成了一棵XML parse tree，用xpath写matching rules
+1. Slither：[源码](https://github.com/crytic/slither)，[论文集](https://github.com/crytic/slither#publications)。完善。扩展性强，有丰富的extension论文：在slither之上加了符号执行；基于slither构建storage dependency graph；22年的文章在slither的基础上结合Symbolic evaluation with Value summary analysis做State inconsistency方面的漏洞检测，SI主要就两个漏洞，重入和Transaction Order Dependence（attacker提高gas limit以影响两笔交易的执行顺序，先提交的tx被后打包执行）
+2. SmartCheck：[源码](https://github.com/smartdec/smartcheck)、[论文地址](https://orbilu.uni.lu/bitstream/10993/35862/3/smartcheck-paper.pdf)。个人，不再维护。把代码语句转成了一棵XML parse tree，用xpath写matching rules
 
-#### 6.17
+#### 6.17 论文-MPro
 
 ###### 《MPro: Combining Static and Symbolic Analysis for Scalable Testing of Smart Contract》
 
@@ -34,7 +34,7 @@
    - 扩大这些工具的检测粒度。针对mythril，如果分析对象是单个文件里有多个合约，mythril只分析最后一个合约，且没有支持multi-file import、父子合约的继承。
 7. 另：根据[A Survey of Languages and Verification Methods](https://arxiv.org/pdf/1809.09805.pdf)，mythril被分进了verification，是model-based verification。Q：mythril属于dynamic analysis？verification？A：mythril是动态符号执行，用fuzz+约束求解器找test case，约束有两方面，一方面是路径约束，一方面是漏洞特征的model。漏洞特征model以及SMT solver使得mythril涉及了verification。
 
-#### 6.24
+#### 6.24 论文-ETHPLOIT
 
 ###### 《Verification of Ethereum Smart Contracts: A Model Checking Approach》
 
