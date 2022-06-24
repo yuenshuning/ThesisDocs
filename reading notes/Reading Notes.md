@@ -93,3 +93,8 @@
    - UnhandledException
    - Reentrancy
 8. 小结：fuzz，生成了能触发漏洞的用例，可以指示利用漏洞攻击的结果是什么（3类），但无法指示漏洞的具体类型。
+
+#### TODO
+
+1. 参考survey整理漏洞列表（现有工具对漏洞检测项的支持、检测方法、confidence）
+2. 梳理现有工具对：require校验、modifier、delegatecall、multi-file、multicontract的支持情况，可作为改进方向
