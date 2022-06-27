@@ -98,3 +98,13 @@
 
 1. 参考survey整理漏洞列表（现有工具对漏洞检测项的支持、检测方法、confidence）
 2. 梳理现有工具对：require校验、modifier、delegatecall、multi-file、multicontract的支持情况，可作为改进方向
+
+#### 6.24 论文-Ethainter
+
+###### 《Ethainter: A Smart Contract Security Analyzer for Composite Vulnerabilities》
+
+1. [论文](https://yanniss.github.io/ethainter-pldi20.pdf)，Dedaub公司未开源
+
+###### 《Empirical Review of Automated Analysis Tools on 47,587 Ethereum Smart Contracts》
+
+1. [论文](https://arxiv.org/pdf/1910.10601.pdf)
