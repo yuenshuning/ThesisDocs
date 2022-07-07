@@ -75,7 +75,7 @@ There are many smart contract analysis tools listed in [Analysis Tools.md](Analy
 | Front Running / TOD - V24       |    NA     |   NA    | 89.7%  |  19.7%   |   NA    |     NA     |
 | Reentrancy - V1                 |   93.1%   |  80.8%  | 75.1%  |  17.3%   |   0%    |    100%    |
 | Time Manipulation - V25         |    NA     |  58.7%  |  100%  |    NA    |  38.9%  |   65.3%    |
-| Unchecked Low Calls -V15        |    NA     |  55.0%  | 76.6%  |  48.9%   |  33.3%  |   96.4%    |
+| Unchecked Low Calls - V15       |    NA     |  55.0%  | 76.6%  |  48.9%   |  33.3%  |   96.4%    |
 
 - False Positive (the number of bugs reported by the tool that actually do not exist)
 
@@ -86,7 +86,29 @@ There are many smart contract analysis tools listed in [Analysis Tools.md](Analy
 | Front Running / TOD - V24       |    NA     |   NA    |   32   |   121    |   NA    |     NA     |
 | Reentrancy - V1                 |     6     |   54    |   0    |    12    |   79    |     0      |
 | Time Manipulation - V25         |    NA     |   12    |   0    |    NA    |   12    |     0      |
-| Unchecked Low Calls -V15        |    NA     |    0    |   10   |    0     |    0    |     6      |
+| Unchecked Low Calls - V15       |    NA     |    0    |   10   |    0     |    0    |     6      |
+
+- False Negative (reproduction with Slither 0.8.3 and Mythril v0.23.3)
+
+| Category                        | Mythril |    Slither     |
+| ------------------------------- | :-----: | :------------: |
+| Access Control / tx.origin - V8 |         |    0% -> 0%    |
+| Arithmetic - V6                 |         |       NA       |
+| Front Running / TOD - V24       |         |       NA       |
+| Reentrancy - V1                 |         |    0% -> 0%    |
+| Time Manipulation - V25         |         | 38.9% ⬇️ 18.1%  |
+| Unchecked Low Calls - V15       |         | 33.3% -> 33.3% |
+
+- False Positive (reproduction with Slither 0.8.3 and Mythril v0.23.3)
+
+| Category                        | Mythril | Slither  |
+| ------------------------------- | :-----: | :------: |
+| Access Control / tx.origin - V8 |         |  4 -> 4  |
+| Arithmetic - V6                 |         |    NA    |
+| Front Running / TOD - V24       |         |    NA    |
+| Reentrancy - V1                 |         | 79 -> 79 |
+| Time Manipulation - V25         |         | 12 ⬆️ 68  |
+| Unchecked Low Calls - V15       |         |  0 -> 0  |
 
 ###### Performance
 
