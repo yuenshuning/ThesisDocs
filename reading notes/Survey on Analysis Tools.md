@@ -47,7 +47,7 @@ There are many smart contract analysis tools listed in [Analysis Tools.md](Analy
 | Time Manipulation - V25         |       |     √     |    √    |   √    |          |    √    |     √      |
 | Unchecked Low Calls - V15       |   √   |     √     |    √    |   √    |    √     |    √    |     √      |
 
-- Vulnerabilities actually detected by tools from test dataset
+- Vulnerabilities actually detected by tools from test dataset, [ref](https://arxiv.org/pdf/1910.10601.pdf)
 
 | Category                        | Maian | Manticore | Mythril | Oyente | Securify | Slither | Smartcheck |
 | ------------------------------- | :---: | :-------: | :-----: | :----: | :------: | :-----: | :--------: |
@@ -133,12 +133,12 @@ There are many smart contract analysis tools listed in [Analysis Tools.md](Analy
 - Static program analysis means to examine a contract without executing it
 - Dynamic program analysis refers to testing and evaluating a contract at run time, such as deploying and executing it on a private blockchain through certain transactions.
 - Formal verification
-- [ref1](https://arxiv.org/abs/2005.11613), [ref2](https://publik.tuwien.ac.at/files/publik_278277.pdf)
+- [ref1](https://arxiv.org/abs/2005.11613), [ref2](https://publik.tuwien.ac.at/files/publik_278277.pdf), [ref3](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/dse.pdf)
 
 | Type             | Maian | Manticore | Mythril | Oyente | Securify | Slither | Smartcheck |
 | ---------------- | :---: | :-------: | :-----: | :----: | :------: | :-----: | :--------: |
 | Static analysis  |   √   |     √     |    √    |   √    |    √     |    √    |     √      |
-| Dynamic analysis |   √   |           |         |        |          |         |            |
+| Dynamic analysis |   √   |    √ ?    |   √ ?   |        |          |         |            |
 
 ###### Method Involved in Analysis
 
@@ -148,14 +148,15 @@ There are many smart contract analysis tools listed in [Analysis Tools.md](Analy
 | Method                  | Maian | Manticore | Mythril | Oyente | Securify | Slither | Smartcheck |
 | ----------------------- | :---: | :-------: | :-----: | :----: | :------: | :-----: | :--------: |
 | Disassembly             |   √   |     √     |    √    |   √    |    √     |         |            |
-| Decompilation           |       |           |         |        |    √     |         |            |
+| Decompilation           |       |           |         |        |    √     |    √    |            |
 | CFG                     |   √   |           |    √    |   √    |          |    √    |            |
 | AST                     |       |           |         |        |          |    √    |     √      |
 | Symbolic execution      |   √   |     √     |    √    |   √    |          |         |            |
 | Constraint solving      |   √   |     √     |    √    |   √    |          |         |            |
 | Abstract interpretation |       |           |         |        |    √     |    √    |            |
 | Horn logic              |       |           |         |        |    √     |         |            |
-| Model checking ?        |       |           |         |        |          |         |            |
+| Model checking          |       |           |         |        |          |         |            |
+| fuzzing                 |       |           |         |        |          |         |            |
 
 #### Insights
 
