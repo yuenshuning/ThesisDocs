@@ -94,17 +94,33 @@
    - Reentrancy
 8. 小结：fuzz，生成了能触发漏洞的用例，可以指示利用漏洞攻击的结果是什么（3类），但无法指示漏洞的具体类型。
 
-#### TODO
-
-1. 参考survey整理漏洞列表（现有工具对漏洞检测项的支持、检测方法、confidence）
-2. 梳理现有工具对：require校验、modifier、delegatecall、multi-file、multicontract的支持情况，可作为改进方向
-
 #### 7.1 论文-Ethainter, survey
 
 ###### 《Ethainter: A Smart Contract Security Analyzer for Composite Vulnerabilities》
 
 1. [论文](https://yanniss.github.io/ethainter-pldi20.pdf)，Dedaub公司未开源
+1. 主要是污点分析
 
 ###### Survey
 
 1. [Survey on Analysis Tools](Survey on Analysis Tools.md)
+
+#### 7.8 对现有工具的能力评估 - SolidiFi
+
+1. 评估工具SolidiFi, [论文 How Effective are Smart Contract Analysis Tools? Evaluating Smart Contract Static Analysis Tools Using Bug Injection](https://arxiv.org/pdf/2005.11613.pdf)
+2. 主动构造有漏洞的合约，因此可统计误报率和漏报率
+3. 详见[Survey on Analysis Tools](Survey on Analysis Tools.md)
+
+#### 7.21 MEV and TOD (Composability Attack)
+
+###### 《Clockwork Finance: Automated Analysis of Economic Security in Smart Contracts》
+
+1. [论文地址](https://eprint.iacr.org/2021/1147.pdf)，Flashbots
+2. MEV可分为良性 MEV、不良 MEV、恶性 MEV。1）对协议之间差价套利、对黑客的攻击进行MEV，对被盗钱包进行MEV转账属于良性 MEV；2）对普通用户的 DEX交易进行三明治攻击、对 Uniswap/Sushi/Balancer/NFT 抢购活动进行抢先交易属于不良 MEV；3）Time-bandit 链重组攻击属于恶性的 MEV。
+3. Unfortunately, as our composition examples show, the security of a DeFi smart contract may not always depend solely on the contract’s code; design flaws in other contracts—even those deployed much later—may cause composability failures. This is problematic for contract developers since it implies that security of their contracts may in fact be out of their hands.
+
+#### TODO
+
+1. 参考survey整理漏洞列表（现有工具对漏洞检测项的支持、检测方法、confidence）
+2. 梳理现有工具对：require校验、modifier、delegatecall、multi-file、multicontract的支持情况，可作为改进方向
+3. 着重关注Slither的算术运算溢出和TOD

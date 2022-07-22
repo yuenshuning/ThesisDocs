@@ -88,31 +88,31 @@ There are many smart contract analysis tools listed in [Analysis Tools.md](Analy
 | Time Manipulation - V25         |    NA     |   12    |   0    |    NA    |   12    |     0      |
 | Unchecked Low Calls - V15       |    NA     |    0    |   10   |    0     |    0    |     6      |
 
-- False Negative (reproduction with Slither 0.8.3 and Mythril v0.23.3)
+- False Negative (reproduction with Slither 0.8.3 and Mythril v0.23.3 (time limit 900s -> 120s))
 
-| Category                        | Mythril |    Slither     |
-| ------------------------------- | :-----: | :------------: |
-| Access Control / tx.origin - V8 |         |    0% -> 0%    |
-| Arithmetic - V6                 |         |       NA       |
-| Front Running / TOD - V24       |         |       NA       |
-| Reentrancy - V1                 |         |    0% -> 0%    |
-| Time Manipulation - V25         |         | 38.9% ⬇️ 18.1%  |
-| Unchecked Low Calls - V15       |         | 33.3% -> 33.3% |
+| Category                        |    Mythril     |    Slither     |
+| ------------------------------- | :------------: | :------------: |
+| Access Control / tx.origin - V8 | 33.3% -> 100%  |    0% -> 0%    |
+| Arithmetic - V6                 | 80.2% -> 100%  |       NA       |
+| Front Running / TOD - V24       |       NA       |       NA       |
+| Reentrancy - V1                 | 80.8% -> 92.1% |    0% -> 0%    |
+| Time Manipulation - V25         | 58.7% -> 90.4% | 38.9% ⬇️ 18.1%  |
+| Unchecked Low Calls - V15       | 55.0% -> 100%  | 33.3% -> 33.3% |
 
-- False Positive (reproduction with Slither 0.8.3 and Mythril v0.23.3)
+- False Positive (reproduction with Slither 0.8.3 and Mythril v0.23.3 (time limit 900s -> 120s))
 
-| Category                        | Mythril | Slither  |
-| ------------------------------- | :-----: | :------: |
-| Access Control / tx.origin - V8 |         |  4 -> 4  |
-| Arithmetic - V6                 |         |    NA    |
-| Front Running / TOD - V24       |         |    NA    |
-| Reentrancy - V1                 |         | 79 -> 79 |
-| Time Manipulation - V25         |         | 12 ⬆️ 68  |
-| Unchecked Low Calls - V15       |         |  0 -> 0  |
+| Category                        | Mythril  | Slither  |
+| ------------------------------- | :------: | :------: |
+| Access Control / tx.origin - V8 |  0 -> 0  |  4 -> 4  |
+| Arithmetic - V6                 | 17 -> 0  |    NA    |
+| Front Running / TOD - V24       |    NA    |    NA    |
+| Reentrancy - V1                 | 54 -> 3  | 79 -> 79 |
+| Time Manipulation - V25         | 12 -> 20 | 12 ⬆️ 68  |
+| Unchecked Low Calls - V15       |  0 -> 0  |  0 -> 0  |
 
 ###### Performance
 
-- Manticore is the only tool that faces timeouts (average 24m28s / contract, cannot be parallelized) during the experiment. Mythril (1m24s), Oyente (30s), Slither (5s)
+- Manticore is the only tool that faces timeouts (average 24m28s / contract, cannot be parallelized) during the experiment. Mythril (1m24s), Oyente (30s), Slither (5s), [ref](https://arxiv.org/pdf/1910.10601.pdf)
 
 | Execution time | Maian | Manticore | Mythril | Oyente | Securify | Slither | Smartcheck |
 | -------------- | :---: | :-------: | :-----: | :----: | :------: | :-----: | :--------: |
